@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                Mortgage Calculator
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Mortgage amount</h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Interest rate(%)</h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Mortgage period (years)</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input ng-model="amount" type="text" class="form-control" value="100,000" placeholder="$">
+                    </div>
+                    <div class="col">
+                        <input ng-model="interest" type="text" class="form-control" value="3.92" placeholder="%">
+                    </div>
+                    <div class="col">
+                        <select name="mySelect" id="mySelect"
+                                ng-options="option.years for option in data.availableOptions track by option.id"
+                                ng-model="data.selectedOption"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Total cost of Mortgage</h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted" id="totalCost">${{monthlyPayment() *
+                            (data.selectedOption.years * 12)}}</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 card-title">Monthly payments</h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 card-title" id="monthly">{{monthlyPayment()}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.data = {
+            availableOptions: [
+                {id: '1', years: 10},
+                {id: '2', years: 20},
+                {id: '3', years: 25},
+                {id: '4', years: 30},
+                {id: "5", years: 40}
+            ],
+            selectedOption: {id: '4', years: 30} //This sets the default value of the select in the ui
+        };
+        $scope.amount = 100000; // default value for mortgage amount
+        $scope.interest = 3.92; // default value for interest rate
+
+        $scope.monthlyPayment = function () {
+            return Math.round($scope.amount * ($scope.interest / 100 / 12) * (Math.pow(1 + ($scope.interest / 100 / 12), ($scope.data.selectedOption.years * 12))) / (Math.pow(1 + ($scope.interest / 100 / 12), ($scope.data.selectedOption.years * 12)) - 1));
+        }
+
+    });
+</script>
+
+</body>
+</html>
