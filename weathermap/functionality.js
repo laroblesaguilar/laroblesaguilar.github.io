@@ -33,10 +33,13 @@ var conditions =
 
     ];
 
+var darkSkyKey = "81ccbe760e20ff959d61216185b52430";
+var mapBoxKey = 'pk.eyJ1IjoibGFyb2JsZXNhZ3VpbGFyIiwiYSI6ImNqc2tpZ2NxYzBpMW80M3BpM2h5MjhjMmgifQ.z0JQD5GBmQ2y9YfnZGKOTQ';
+
 $(document).ready(function () {
 
     // sets Map
-    var mapBoxKey = 'pk.eyJ1IjoibGFyb2JsZXNhZ3VpbGFyIiwiYSI6ImNqc2tpZ2NxYzBpMW80M3BpM2h5MjhjMmgifQ.z0JQD5GBmQ2y9YfnZGKOTQ';
+
 
     mapboxgl.accessToken = mapBoxKey;
 
