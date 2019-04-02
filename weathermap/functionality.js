@@ -20,16 +20,16 @@ function boxMaker(data, maxday) {
 
 var conditions =
     [
-        {condition: 'cloudy-day', icon: "climacons-master/SVG/Cloud.svg"},
-        {condition: 'clear-night', icon: "climacons-master/SVG/Moon.svg"},
-        {condition: 'rain', icon: "climacons-master/SVG/Cloud-Rain.svg"},
-        {condition: 'snow', icon: "climacons-master/SVG/Cloud-Snow.svg"},
-        {condition: 'sleet', icon: "climacons-master/SVG/Cloud-Snow.svg"},
-        {condition: 'wind', icon: "climacons-master/SVG/Cloud-Wind.svg"},
-        {condition: 'fog', icon: "climacons-master/SVG/Cloud-Fog.svg"},
-        {condition: 'cloudy', icon: "climacons-master/SVG/Cloud.svg"},
-        {condition: 'partly-cloudy-day', icon: "climacons-master/SVG/Cloud-Sun.svg"},
-        {condition: 'partly-cloudy-night', icon: "climacons-master/SVG/Cloud-Moon.svg"}
+        {condition: 'cloudy-day', icon: "../weathermap/climacons-master/SVG/Cloud.svg"},
+        {condition: 'clear-night', icon: "../weathermap/climacons-master/SVG/Moon.svg"},
+        {condition: 'rain', icon: "../weathermap/climacons-master/SVG/Cloud-Rain.svg"},
+        {condition: 'snow', icon: "../weathermap/climacons-master/SVG/Cloud-Snow.svg"},
+        {condition: 'sleet', icon: "../weathermap/climacons-master/SVG/Cloud-Snow.svg"},
+        {condition: 'wind', icon: "../weathermap/climacons-master/SVG/Cloud-Wind.svg"},
+        {condition: 'fog', icon: "../weathermap/climacons-master/SVG/Cloud-Fog.svg"},
+        {condition: 'cloudy', icon: "../weathermap/climacons-master/SVG/Cloud.svg"},
+        {condition: 'partly-cloudy-day', icon: "../weathermap/climacons-master/SVG/Cloud-Sun.svg"},
+        {condition: 'partly-cloudy-night', icon: "../weathermap/climacons-master/SVG/Cloud-Moon.svg"}
 
     ];
 
