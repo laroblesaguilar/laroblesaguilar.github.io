@@ -69,7 +69,7 @@ $(document).ready(function () {
 
 
         //Sets SA,TX as default for darkSky
-        var darkSkyUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936"
+        var darkSkyUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + "81ccbe760e20ff959d61216185b52430" + "/29.4241,-98.4936"
         $.ajax(darkSkyUrl).done(function (data) {
             reverseGeocode({lng: -98.4936, lat: 29.4241}, mapBoxKey).then(function (results) {
                 console.log(results);
@@ -90,7 +90,7 @@ $(document).ready(function () {
             var lngLat = marker.getLngLat();
 
             //using marker latitude and longitude to add on to out URL
-            var darkSkyUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lngLat.lat + "," + lngLat.lng + ""
+            var darkSkyUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + "81ccbe760e20ff959d61216185b52430" + "/" + lngLat.lat + "," + lngLat.lng + ""
             $.ajax(darkSkyUrl).done(function (data) {
                 // sets h2 with name of Current city
                 reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapBoxKey).then(function (results) {
